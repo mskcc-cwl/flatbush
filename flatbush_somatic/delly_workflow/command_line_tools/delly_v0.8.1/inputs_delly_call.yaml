@@ -1,0 +1,12 @@
+bam_normal:
+    class: File
+    path: default/file/path
+bam_tumor:
+    class: File
+    path: default/file/path
+exclude:
+    class: File
+    path: default/file/path
+genome: default_string
+outfile: default_string
+svtype: default_string

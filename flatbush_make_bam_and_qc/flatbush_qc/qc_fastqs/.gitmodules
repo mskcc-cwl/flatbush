@@ -1,0 +1,3 @@
+[submodule "fastp_0.19.7"]
+	path = fastp_0.19.7
+	url = https://github.com/mskcc-cwl/fastp_0.19.7

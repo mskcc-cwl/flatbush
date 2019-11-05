@@ -1,0 +1,80 @@
+baits_list: null
+delly_params:
+    delly_exclude:
+        class: File
+        path: default/file/path
+    svtype:
+      - default_string
+facets_params:
+    R_lib: default_string
+    count_orphans: false
+    cval: 0
+    directory: default_string
+    genome: default_string
+    ggplot2: default_string
+    gzip: false
+    ignore_overlaps: false
+    max_depth: 0
+    min_base_quality: 0
+    min_map_quality: 0
+    min_nhet: 0
+    min_read_counts: 0
+    ndepth: 0
+    pseudo_snps: 0
+    purity_cval: 0
+    purity_min_nhet: 0
+    purity_ndepth: 0
+    purity_snp_nbhd: 0
+    seed: 0
+    single_chrom: default_string
+    snp_nbhd: 0
+facets_vcf:
+    class: File
+    path: default/file/path
+known_sites:
+  - class: File
+    path: default/file/path
+msisensor_list:
+    class: File
+    path: default/file/path
+normal_sample:
+    CN: default_string
+    ID: default_string
+    LB: default_string
+    PL: default_string
+    PU:
+      - default_string
+    R1:
+      - class: File
+        path: default/file/path
+    R2:
+      - class: File
+        path: default/file/path
+    RG_ID:
+      - default_string
+    adapter: default_string
+    adapter2: default_string
+    bwa_output: default_string
+reference_sequence:
+    class: File
+    path: default/file/path
+target_bed: null
+targets_list: null
+tumor_sample:
+    CN: default_string
+    ID: default_string
+    LB: default_string
+    PL: default_string
+    PU:
+      - default_string
+    R1:
+      - class: File
+        path: default/file/path
+    R2:
+      - class: File
+        path: default/file/path
+    RG_ID:
+      - default_string
+    adapter: default_string
+    adapter2: default_string
+    bwa_output: default_string

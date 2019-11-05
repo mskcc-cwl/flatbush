@@ -1,0 +1,7 @@
+call_bcf_file:
+    class: File
+    path: default/file/path
+outfile: default_string
+samples:
+    class: File
+    path: default/file/path

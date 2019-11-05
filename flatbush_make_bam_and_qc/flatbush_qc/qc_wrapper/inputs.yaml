@@ -1,0 +1,22 @@
+{
+    'REFERENCE_SEQUENCE': {   'class': 'File',
+                              'path': '/path/to/ref.fasta',
+                              'secondaryFiles': [ { 'class': 'File',
+                                                    'path': '/path/to/ref.fasta.fai'
+                                                },
+                                                  { 'class': 'File',
+                                                    'path': '/path/to/ref.dict'
+                                                }]
+                          },
+    'INPUT': { 'class': 'File',
+             'path': '/path/to/file.bam',
+             'secondaryFiles': [ { 'class': 'File',
+                                   'path': '/path/to/file.bai' 
+                                } ]
+           },
+    'OUTPUT': 'my_output_file.txt',
+    'TARGET_INTERVALS': { 'class': 'File',
+             'path': '/path/to/file.target_interval_lists'},
+    'BAIT_INTERVALS': { 'class': 'File',
+             'path': '/path/to/file.baits.interval_lists' }
+}

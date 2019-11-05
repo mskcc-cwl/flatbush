@@ -1,0 +1,7 @@
+{ 
+  'r1': [   {   'class': 'File',
+                'path': '/path/to/r1.1.fastq.gz'}],
+  'r2': [   {   'class': 'File',
+                'path': '/path/to/r2.1.fastq.gz'}],
+  'output_prefix': ['r1.1_r2.1_output_prefix_here'] # used by fastp to name output json and html
+}
