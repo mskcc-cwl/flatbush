@@ -1,0 +1,8 @@
+output_dir: a_string  # type "string" (optional)
+scatterCount: 0  # type "int" (optional)
+agilentTargets:  # type "File"
+    class: File
+    path: a/file/path
+genomeFile:  # type "File"
+    class: File
+    path: a/file/path

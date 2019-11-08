@@ -18,7 +18,7 @@ inputs:
       prefix: '--intervals'
     doc: Agilent Targets
   - id: scatterCount
-    type: integer?
+    type: int?
     inputBinding:
       position: 0
       prefix: '--scatter-count'

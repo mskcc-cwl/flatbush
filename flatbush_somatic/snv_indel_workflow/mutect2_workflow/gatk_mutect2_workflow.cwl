@@ -20,14 +20,16 @@ inputs:
   - id: idNormal
     type: string?
   - id: scatterCount
-    type: integer?
+    type: int?
   - id: split_intervals_output_dir
-    type: [ string, null ]
+    type: string?
     default: 'split_interval_files'
 outputs:
   - id: filteredMutect2Vcf
     doc: Output filtered mutect2 VCF
-    type: File
+    type:
+      type: array
+      items: File
     outputSource: run_filter_mutect_calls/filteredMutect2Vcf
 steps:
   run_split_intervals:

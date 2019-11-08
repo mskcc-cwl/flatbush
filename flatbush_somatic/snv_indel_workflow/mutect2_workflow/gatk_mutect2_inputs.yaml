@@ -1,0 +1,14 @@
+idNormal: a_string  # type "string" (optional)
+bamNormal:  # type "File"
+    class: File
+    path: a/file/path
+idTumor: a_string  # type "string" (optional)
+bamTumor:  # type "File"
+    class: File
+    path: a/file/path
+intervalFile:  # type "File"
+    class: File
+    path: a/file/path
+genomeFile:  # type "File"
+    class: File
+    path: a/file/path
