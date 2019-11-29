@@ -39,6 +39,14 @@ outputs:
       - base_recalibration/output_bam
     type: File
     secondaryFiles:
+      - ^.bai 
+  - id: unmerged_bam
+    outputSource:
+      - align_sample/unmerged_bam
+    type:
+      type: array
+      items: File
+    secondaryFiles:
       - ^.bai
 steps:
   - id: align_sample
@@ -60,6 +68,7 @@ steps:
           - lane_id
     out:
       - id: output_md_bam
+      - id: unmerged_bam
     run: align_sample/align_sample.cwl
   - id: base_recalibration
     in:

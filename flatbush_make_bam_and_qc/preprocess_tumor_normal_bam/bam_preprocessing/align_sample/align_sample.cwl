@@ -42,6 +42,12 @@ outputs:
     type: File
     secondaryFiles: 
       - ^.bai
+  - id: unmerged_bam
+    type:
+      type: array
+      items: File
+    outputSource:
+      - bwa_sort/output_file
 
 steps:
   - id: group_reads

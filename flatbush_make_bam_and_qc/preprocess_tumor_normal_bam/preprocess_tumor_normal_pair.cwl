@@ -65,6 +65,20 @@ outputs:
     outputSource: make_bam_normal/output_bam
     secondaryFiles:
       - ^.bai
+  unmerged_tumor_bam:
+    type:
+      type: array
+      items: File
+    outputSource: make_bam_tumor/unmerged_bam
+    secondaryFiles:
+      - ^.bai
+  unmerged_normal_bam:
+    type:
+      type: array
+      items: File
+    outputSource: make_bam_normal/unmerged_bam
+    secondaryFiles:
+      - ^.bai
 
 steps:
   make_bam_tumor:
@@ -80,7 +94,7 @@ steps:
         valueFrom: ${ return inputs.sample.RG_ID }
       sample_id:
         valueFrom: ${ return inputs.sample.ID }
-    out: [ output_bam ]
+    out: [ output_bam, unmerged_bam ]
     run: bam_preprocessing/bam_preprocessing.cwl
 
   make_bam_normal:
@@ -96,7 +110,7 @@ steps:
         valueFrom: ${ return inputs.sample.RG_ID }
       sample_id:
         valueFrom: ${ return inputs.sample.ID }
-    out: [ output_bam ]
+    out: [ output_bam, unmerged_bam ]
     run: bam_preprocessing/bam_preprocessing.cwl
 
 requirements:
