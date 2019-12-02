@@ -53,10 +53,10 @@ outputs:
 
 expression: |
   ${
-     sample_flat = inputs.sample;
-     sample_flat.R2 = inputs.r2;
-     sample_flat.R1 = inputs.r1;
-     return { "sample_flat": sample_flat };
+     var sample_flat = inputs.sample;
+     sample_flat['R2'] = inputs.r2;
+     sample_flat['R1'] = inputs.r1;
+     return sample_flat;
    }
 
 requirements:
