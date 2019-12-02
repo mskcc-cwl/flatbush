@@ -3,7 +3,7 @@ cwlVersion: v1.0
 id: split
 label: split
 
-baseCommand: [ 'python', '/home/reza/flatbush/flatbush_make_bam_and_qc/split/split_lanes.py' ]
+baseCommand: [ 'python', '/usr/local/bin/split_lanes.py' ]
 
 inputs:      
   fastq_file:
