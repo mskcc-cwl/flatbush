@@ -85,79 +85,18 @@ outputs:
     outputSource: put_in_dir_bams/directory
 
 steps:
-  split_tumor_r1:
+  split_concat_merge:
     in:
-      sample: tumor_sample
-      fastq_file:
-        valueFrom: ${ return inputs.sample.R1 }
-      sample_id:
-        valueFrom: ${ return inputs.sample.ID }
-      r_index:
-        valueFrom: "1"
-    scatter: [ fastq_file ]
-    out: [ split_lanes ]
-    run: split/splitFastq.cwl 
-  
-  split_tumor_r2:
-    in:
-      sample: tumor_sample
-      fastq_file:
-        valueFrom: ${ return inputs.sample.R2 }
-      sample_id:
-        valueFrom: ${ return inputs.sample.ID }
-      r_index:
-        valueFrom: "2"
-    scatter: [ fastq_file ]
-    out: [ split_lanes ]
-    run: split/splitFastq.cwl 
-  
-  split_normal_r1:
-    in:
-      sample: normal_sample
-      fastq_file:
-        valueFrom: ${ return inputs.sample.R1 }
-      sample_id:
-        valueFrom: ${ return inputs.sample.ID }
-      r_index:
-        valueFrom: "1"
-    scatter: [ fastq_file ]
-    out: [ split_lanes ]
-    run: split/splitFastq.cwl 
-
-  split_normal_r2:
-    in:
-      sample: normal_sample
-      fastq_file:
-        valueFrom: ${ return inputs.sample.R2 }
-      sample_id:
-        valueFrom: ${ return inputs.sample.ID }
-      r_index:
-        valueFrom: "2"
-    scatter: [ fastq_file ]
-    out: [ split_lanes ]
-    run: split/splitFastq.cwl 
-
-  merge_tumor:
-    run: split/concat_lanes.cwl
-    in:
-      sample: tumor_sample
-      r1: split_tumor_r1/split_lanes
-      r2: split_tumor_r2/split_lanes
-    out: [ sample_flat ]
-
-  merge_normal:
-    run: split/concat_lanes.cwl
-    in:
-      sample: normal_sample
-      r1: split_normal_r1/split_lanes
-      r2: split_normal_r2/split_lanes
-    out: [ sample_flat ]
+      tumor_sample: tumor_sample
+      normal_sample: normal_sample
+    out: [ split_tumor_sample, split_normal_sample ]
+    run: split/split_concat_merge.cwl
 
   # combines R1s and R2s from both tumor and normal samples
   run_qc_fastqs:
     in:
-      tumor_sample: merge_tumor/sample_flat
-      normal_sample: merge_normal/sample_flat
+      tumor_sample: split_concat_merge/split_tumor_sample
+      normal_sample: split_concat_merge/split_normal_sample
       r1:
         valueFrom: ${ var data = []; data = inputs.tumor_sample.R1.concat(inputs.normal_sample.R1); return data }
       r2:
@@ -184,8 +123,8 @@ steps:
 
   make_bams:
     in:
-      tumor_sample: merge_tumor/sample_flat
-      normal_sample: merge_normal/sample_flat
+      tumor_sample: split_concat_merge/split_tumor_sample
+      normal_sample: split_concat_merge/split_normal_sample
       reference_sequence: reference_sequence
       known_sites: known_sites
     out: [ tumor_bam, normal_bam, unmerged_tumor_bam, unmerged_normal_bam ]

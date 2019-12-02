@@ -6,22 +6,6 @@ label: split
 baseCommand: [ 'python', '/home/reza/flatbush/flatbush_make_bam_and_qc/split/split_lanes.py' ]
 
 inputs:      
-  sample:
-    type:
-      type: record
-      fields:
-        ID: string
-        CN: string
-        LB: string
-        PL: string
-        PU: string[]
-        R1: File[]
-        R2: File[]
-        RG_ID: string[]
-        adapter: string
-        adapter2: string
-        bwa_output: string
-  
   fastq_file:
     type: File
     inputBinding:
