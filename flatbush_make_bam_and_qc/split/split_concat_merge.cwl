@@ -173,3 +173,10 @@ steps:
       r1: split_normal_r1/split_lanes
       r2: split_normal_r2/split_lanes
     out: [ sample_flat ]
+
+requirements:
+  - class: SubworkflowFeatureRequirement
+  - class: ScatterFeatureRequirement
+  - class: InlineJavascriptRequirement
+  - class: StepInputExpressionRequirement
+  - class: MultipleInputFeatureRequirement
