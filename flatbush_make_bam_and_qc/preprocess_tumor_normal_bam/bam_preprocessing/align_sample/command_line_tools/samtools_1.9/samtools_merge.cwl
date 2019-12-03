@@ -10,7 +10,6 @@ inputs:
     inputBinding:
       position: 2
     doc: Input array containing files to be merged
-  - id:
 outputs:
   - id: output_file
     type: File
