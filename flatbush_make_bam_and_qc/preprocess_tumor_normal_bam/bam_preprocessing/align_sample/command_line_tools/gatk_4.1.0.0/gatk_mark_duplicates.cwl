@@ -172,10 +172,10 @@ arguments:
     valueFrom: '50000'
   - position: 0
     prefix: '--java-options'
-    valueFrom: '-Xms$(parseInt(runtime.ram)/2000)g -Xmx$(parseInt(runtime.ram)/1000 - 1)g'
+    valueFrom: '-Xms$(parseInt(runtime.ram)/2000)g -Xmx$(parseInt(runtime.ram)/1000)g'
 requirements:
   - class: ResourceRequirement
-    ramMin: 32000
+    ramMin: 30100
     coresMin: 4
   - class: DockerRequirement
     dockerPull: 'broadinstitute/gatk:4.1.0.0'
