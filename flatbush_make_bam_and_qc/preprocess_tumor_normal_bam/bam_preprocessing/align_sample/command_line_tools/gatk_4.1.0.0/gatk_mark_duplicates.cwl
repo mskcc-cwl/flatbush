@@ -172,7 +172,7 @@ arguments:
     valueFrom: '50000'
   - position: 0
     prefix: '--java-options'
-    valueFrom: '-Xms$(parseInt(runtime.ram)/2000)g -Xmx$(parseInt(runtime.ram)/1000)g'
+    valueFrom: '-Xms$(Math.floor(parseInt(runtime.ram)/2000))g -Xmx$(Math.floor(parseInt(runtime.ram)/1000))g'
 requirements:
   - class: ResourceRequirement
     ramMin: 30100
